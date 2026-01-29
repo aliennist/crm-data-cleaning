@@ -19,6 +19,7 @@ Incoming CRM data often contains:
 - Defined data quality rules
 - Used SQL to identify duplicates and invalid records
 - Standardized fields for reporting readiness
+- Used SQL-based validation checks to assess data completeness, format correctness, and duplication risk prior to CRM ingestion.
 
 ## Output
 - Cleaned dataset
