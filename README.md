@@ -13,6 +13,7 @@ Incoming CRM data often contains:
 - Source: Simulated CRM export
 - Format: CSV
 - Records: 5,000+
+- Note: This dataset is a simulated CRM export created for portfolio demonstration purposes. Data quality issues were intentionally introduced to reflect real-world operational scenarios.
 
 ## Approach
 - Defined data quality rules
