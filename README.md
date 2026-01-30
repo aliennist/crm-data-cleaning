@@ -20,6 +20,7 @@ Incoming CRM data often contains:
 - Used SQL to identify duplicates and invalid records
 - Standardized fields for reporting readiness
 - Used SQL-based validation checks to assess data completeness, format correctness, and duplication risk prior to CRM ingestion.
+- Enforced controlled lead_source values to ensure consistent attribution and reporting accuracy
 
 ## Output
 - Cleaned dataset
