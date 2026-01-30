@@ -50,3 +50,50 @@ SELECT
     *
 FROM raw_leads
 WHERE created_date >= CURRENT_DATE - INTERVAL '30 days';
+
+/* =========================================
+   DATA CLEANING LOGIC
+   ========================================= */
+
+/* Create a cleaned dataset */
+SELECT
+    lead_id,
+    LOWER(TRIM(email)) AS email,
+    TRIM(first_name) AS first_name,
+    TRIM(last_name) AS last_name,
+    TRIM(company) AS company,
+    job_title,
+    INITCAP(industry) AS industry,
+    lead_source,
+    created_date,
+    country,
+    employee_count,
+    phone
+FROM raw_leads
+WHERE email IS NOT NULL
+  AND email <> ''
+  AND email LIKE '%@%'
+  AND company IS NOT NULL
+  AND company <> ''
+  AND lead_source IN (
+      'Website',
+      'Facebook Ads',
+      'Google Ads',
+      'Referral',
+      'Email Campaign',
+      'Event'
+  );
+
+/* Deduplicate by email, keeping most recent record */
+WITH ranked_leads AS (
+    SELECT
+        *,
+        ROW_NUMBER() OVER (
+            PARTITION BY email
+            ORDER BY created_date DESC
+        ) AS row_num
+    FROM cleaned_leads
+)
+SELECT *
+FROM ranked_leads
+WHERE row_num = 1;
