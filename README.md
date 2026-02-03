@@ -1,7 +1,9 @@
-# CRM Data Cleaning & Validation
+# CRM Data Quality & Cleaning Operations
 
 ## Overview
-This project demonstrates how I clean, validate, and prepare CRM lead data for downstream sales and operations use.
+This project demonstrates a complete CRM data quality workflow, from raw lead ingestion to validation, deduplication, and production of an ingestion-ready dataset for sales and operations teams.
+
+The focus is on enforcing data governance rules, improving data reliability, and documenting measurable impact.
 
 ## Problem
 Incoming CRM data often contains:
@@ -22,6 +24,14 @@ Incoming CRM data often contains:
 - Used SQL-based validation checks to assess data completeness, format correctness, and duplication risk prior to CRM ingestion.
 - Enforced controlled lead_source values to ensure consistent attribution and reporting accuracy
 
+## Data Quality Workflow
+1. Ingest raw CRM lead export
+2. Validate required fields and formats
+3. Enforce controlled lead source values
+4. Identify and remove duplicate records
+5. Produce cleaned, ingestion-ready dataset
+6. Measure before vs after data quality impact
+
 ## Output
 - Cleaned dataset
 - SQL queries for validation
@@ -29,9 +39,10 @@ Incoming CRM data often contains:
 - Generated a cleaned CRM dataset by enforcing required-field rules, validating email formats, standardizing text fields, and removing duplicate records.
 - Reduced raw dataset from 5,000 records to 3762 validated, ingestion-ready leads.
 
-## Tools Used
-- SQL
-- Excel / Google Sheets
+## Tools & Technologies
+- SQL (validation, deduplication logic)
+- Excel / Google Sheets (data preparation)
+- GitHub (version control and documentation)
 
 ## Data Quality Impact
 
@@ -46,3 +57,7 @@ Incoming CRM data often contains:
 
 ### Summary
 By enforcing data quality rules and removing invalid or duplicate records, the dataset was reduced from 5,000 raw leads to 3762 ingestion-ready records. This process eliminated 18 duplicate entries and ensured 100% compliance with required field and lead source standards, improving downstream CRM reliability and reporting accuracy.
+
+## Business Impact
+By enforcing CRM data quality standards prior to ingestion, this workflow improves reporting accuracy, reduces duplicate outreach by sales teams, and establishes a repeatable governance process for ongoing data operations.
+
